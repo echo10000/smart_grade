@@ -1,0 +1,17 @@
+{
+    "cookies":  [
+                    {
+                        "expires":  -1,
+                        "sameSite":  "Lax",
+                        "secure":  false,
+                        "name":  "PHPSESSID",
+                        "value":  "kifpvv2uvmc3j725mtkoboedb3",
+                        "path":  "/",
+                        "httpOnly":  false,
+                        "domain":  "127.0.0.1"
+                    }
+                ],
+    "origins":  [
+
+                ]
+}
