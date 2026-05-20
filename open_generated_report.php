@@ -14,7 +14,7 @@ if (!$reportId) {
     exit('Invalid report ID.');
 }
 
-$stmt = $pdo->prepare('SELECT gr.id, gr.student_id, gr.file_path
+$stmt = $pdo->prepare('SELECT gr.id, gr.student_id, gr.generated_by, gr.file_path
     FROM grade_reports gr
     JOIN students s ON s.id = gr.student_id
     WHERE gr.id = ?
@@ -30,7 +30,11 @@ if (!$report) {
 
 if ($role === 'teacher') {
     $teacherId = app_teacher_id($pdo, app_current_user_id());
-    if (!$teacherId || !teacher_can_access_student($pdo, (int) $report['student_id'], $teacherId)) {
+    if (
+        !$teacherId
+        || (int) $report['generated_by'] !== app_current_user_id()
+        || !teacher_can_access_student($pdo, (int) $report['student_id'], $teacherId)
+    ) {
         http_response_code(403);
         exit('You are not allowed to access this report.');
     }

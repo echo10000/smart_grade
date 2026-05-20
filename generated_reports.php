@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'config.php';
+require_once 'components.php';
 
 $role = $_SESSION['user']['role'] ?? ($_SESSION['role'] ?? '');
 if (!in_array($role, ['admin', 'teacher'], true)) {
@@ -38,8 +39,10 @@ if ($role === 'teacher') {
             AND e.archived_at IS NULL
             AND sub.archived_at IS NULL
             AND sub.teacher_id = ?
-    )';
+    )
+    AND gr.generated_by = ?';
     $params[] = $teacherId;
+    $params[] = $userId;
 }
 
 $sql .= ' ORDER BY gr.created_at DESC, gr.id DESC';

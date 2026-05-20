@@ -5,6 +5,7 @@ function sg_nav_items(): array
     return [
         'admin' => [
             ['href' => 'admin_dashboard.php', 'icon' => 'bi-speedometer2', 'label' => 'Dashboard'],
+            ['href' => 'search.php', 'icon' => 'bi-search', 'label' => 'Search'],
             ['href' => 'manage_students.php', 'icon' => 'bi-people', 'label' => 'Students'],
             ['href' => 'manage_teachers.php', 'icon' => 'bi-person-badge', 'label' => 'Teachers'],
             ['href' => 'manage_subjects.php', 'icon' => 'bi-book', 'label' => 'Subjects'],
@@ -20,6 +21,7 @@ function sg_nav_items(): array
         ],
         'teacher' => [
             ['href' => 'teacher_dashboard.php', 'icon' => 'bi-speedometer2', 'label' => 'Dashboard'],
+            ['href' => 'search.php', 'icon' => 'bi-search', 'label' => 'Search'],
             ['href' => 'manage_components.php', 'icon' => 'bi-sliders', 'label' => 'Components'],
             ['href' => 'input_grades.php', 'icon' => 'bi-pencil-square', 'label' => 'Input Grades'],
             ['href' => 'compute_grades.php', 'icon' => 'bi-calculator', 'label' => 'Compute Grades'],
