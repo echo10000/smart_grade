@@ -87,6 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if (!empty($error)): ?>
                 <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
+            <?php if (($_GET['registered'] ?? '') === '1'): ?>
+                <div class="alert alert-success">Registration successful. You can now sign in.</div>
+            <?php endif; ?>
 
             <form method="post">
                 <?= csrf_input() ?>
@@ -106,6 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
                 <button type="button" class="forgot-link" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</button>
+                <p class="auth-switch mb-0">No student account yet? <a href="student_register.php">Register here</a></p>
             </form>
         </section>
     </main>
